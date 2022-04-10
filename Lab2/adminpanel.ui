@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AdminPanel</class>
+ <widget class="QMainWindow" name="AdminPanel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1102</width>
+    <height>560</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>AdminPanel</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>10</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Разрешения&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>10</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Пользователи&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>0</y>
+      <width>20</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>70</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Пользователь:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_add_user">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>430</y>
+      <width>271</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Добавить нового</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>421</x>
+      <y>490</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Имя:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_user_name">
+    <property name="geometry">
+     <rect>
+      <x>464</x>
+      <y>490</y>
+      <width>291</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>70</y>
+      <width>171</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Разрешения пользователя:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listWidget_permissions_user">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>110</y>
+      <width>271</width>
+      <height>361</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_yes">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>500</y>
+      <width>51</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Да</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_no">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>500</y>
+      <width>51</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Нет</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listWidget_permissions_global">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>70</y>
+      <width>271</width>
+      <height>401</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_add_permission">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>470</y>
+      <width>141</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Добавить</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_edit_user_name">
+    <property name="geometry">
+     <rect>
+      <x>461</x>
+      <y>520</y>
+      <width>131</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Редактировать имя</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_delete_user">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>520</y>
+      <width>151</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Удалить пользователя</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="listWidget_users">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>110</y>
+      <width>271</width>
+      <height>321</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

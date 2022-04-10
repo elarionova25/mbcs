@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,14 +9,22 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    application.cpp \
     main.cpp \
-    mainwindow.cpp
+    adminpanel.cpp \
+    settingspanel.cpp \
+    userpanel.cpp
 
 HEADERS += \
-    mainwindow.h
+    adminpanel.h \
+    application.h \
+    settingspanel.h \
+    userpanel.h
 
 FORMS += \
-    mainwindow.ui
+    adminpanel.ui \
+    settingspanel.ui \
+    userpanel.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
