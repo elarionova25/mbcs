@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Settings Panel</string>
   </property>
   <widget class="QLineEdit" name="lineEdit_db_path">
    <property name="geometry">
