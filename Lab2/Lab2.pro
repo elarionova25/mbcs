@@ -13,17 +13,20 @@ SOURCES += \
     main.cpp \
     adminpanel.cpp \
     settingspanel.cpp \
+    takegrantpanel.cpp \
     userpanel.cpp
 
 HEADERS += \
     adminpanel.h \
     application.h \
     settingspanel.h \
+    takegrantpanel.h \
     userpanel.h
 
 FORMS += \
     adminpanel.ui \
     settingspanel.ui \
+    takegrantpanel.ui \
     userpanel.ui
 
 # Default rules for deployment.

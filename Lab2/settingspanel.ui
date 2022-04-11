@@ -40,7 +40,7 @@
    <property name="geometry">
     <rect>
      <x>450</x>
-     <y>160</y>
+     <y>140</y>
      <width>80</width>
      <height>24</height>
     </rect>
@@ -53,7 +53,7 @@
    <property name="geometry">
     <rect>
      <x>450</x>
-     <y>200</y>
+     <y>170</y>
      <width>80</width>
      <height>24</height>
     </rect>
@@ -157,6 +157,19 @@
    </property>
    <property name="orientation">
     <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_takegrant_panel">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>200</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Take-Grant</string>
    </property>
   </widget>
  </widget>

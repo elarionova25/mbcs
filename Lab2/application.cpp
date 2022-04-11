@@ -23,6 +23,14 @@ Application::Application(int argc, char *argv[])
 
     connect(sp->up,SIGNAL(send_check(check_data)),
             this, SLOT(get_check(check_data)));
+
+    connect(sp->tgp,SIGNAL(grant(QString,QString,QStringList)),
+            this, SLOT(get_grant(QString,QString,QStringList)));
+    connect(sp->tgp,SIGNAL(remove(QString,QStringList)),
+            this, SLOT(get_remove(QString,QStringList)));
+    connect(sp->tgp,SIGNAL(create(QString,QStringList)),
+            this, SLOT(get_create(QString,QStringList)));
+
 }
 
 Application::~Application()
@@ -120,6 +128,7 @@ void Application::get_request(send_request sr)
         }
         emit(send_data(rd));
         sp->up->load_users(rd.users);
+        sp->tgp->setup(rd.users,rd.permissions);
         break;
     case ADD_PERMISSION:
         {
@@ -139,7 +148,7 @@ void Application::get_request(send_request sr)
         break;
         }
     case DELETE_USER:
-        {//НЕ ТО
+        {
         qDebug() << "DELETE_USER recieved";
         QString request = "DELETE FROM SECURITY WHERE name = '" + sr.data[0] + "';";
         query.exec(request);
@@ -222,4 +231,61 @@ void Application::get_check(check_data cd)
 
 
     sp->up->check_result(res);
+}
+
+
+void Application::get_grant(QString uf, QString ut, QStringList p)
+{
+    QSqlQuery query;
+    QString request;
+    for (qsizetype i = 0; i < p.size(); i++)
+    {
+        request = "SELECT " + p[i] + " FROM SECURITY WHERE name = '" + uf + "';";
+        query.exec(request);
+        if (query.next())
+        {
+            QString perm = query.value(0).toString();
+            request = "UPDATE SECURITY SET " + p[i] + " = '" + perm + "' WHERE name = '" + ut + "';";
+            query.exec(request);
+        }
+        else
+        {
+            qDebug() << "Ошибка получения данных о ячейке";
+            return;
+        }
+    }
+    sp->ap->update();
+}
+
+void Application::get_remove(QString u, QStringList p)
+{
+    QSqlQuery query;
+    QString request = "UPDATE SECURITY SET";
+    for (qsizetype i = 0; i < p.size(); i++)
+    {
+        if (i != 0) request += ",";
+        request += " " + p[i] + " = '-'";
+    }
+    request += " WHERE name = '" + u + "';";
+    query.exec(request);
+    sp->ap->update();
+}
+
+void Application::get_create(QString un, QStringList p)
+{
+    QSqlQuery query;
+    QString request =  "INSERT INTO SECURITY (name";
+    for (qsizetype i = 0; i < p.size(); i++)
+    {
+        request += ", " + p[i];
+    }
+    request += ") VALUES ('" + un + "'";
+    for (qsizetype i = 0; i < p.size(); i++)
+    {
+        request += ", '+'";
+    }
+    request += ");";
+    query.exec(request);
+    qDebug() << request;
+    sp->ap->update();
 }

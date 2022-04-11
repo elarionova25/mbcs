@@ -27,6 +27,10 @@ private slots:
     void get_request(send_request);
     void get_check(check_data);
 
+    void get_grant(QString uf, QString ut, QStringList p);
+    void get_remove(QString u, QStringList p);
+    void get_create(QString un, QStringList p);
+
 signals:
     void send_data(recieved_data);
 

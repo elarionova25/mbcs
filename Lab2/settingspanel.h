@@ -3,6 +3,7 @@
 
 #include <adminpanel.h>
 #include <userpanel.h>
+#include <takegrantpanel.h>
 
 #include <QWidget>
 #include <QFileDialog>
@@ -29,6 +30,7 @@ public:
 
     AdminPanel *ap;
     UserPanel *up;
+    TakeGrantPanel *tgp;
 
 
 
@@ -42,6 +44,8 @@ private slots:
     void on_pushButton_user_panel_clicked();
 
     void on_pushButton_check_db_clicked();
+
+    void on_pushButton_takegrant_panel_clicked();
 
 private:
     Ui::SettingsPanel *ui;

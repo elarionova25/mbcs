@@ -9,6 +9,7 @@ SettingsPanel::SettingsPanel(QWidget *parent) :
     set_status(0);
     ap = new AdminPanel();
     up = new UserPanel();
+    tgp = new TakeGrantPanel();
 }
 
 SettingsPanel::~SettingsPanel()
@@ -82,5 +83,12 @@ void SettingsPanel::on_pushButton_admin_panel_clicked()
 void SettingsPanel::on_pushButton_user_panel_clicked()
 {
     up->show();
+    ap->update();
 }
 
+
+void SettingsPanel::on_pushButton_takegrant_panel_clicked()
+{
+    tgp->show();
+    ap->update();
+}
