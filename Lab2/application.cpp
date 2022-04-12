@@ -274,7 +274,45 @@ void Application::get_remove(QString u, QStringList p)
 void Application::get_create(QString un, QStringList p)
 {
     QSqlQuery query;
-    QString request =  "INSERT INTO SECURITY (name";
+    QStringList perm,perm_to_add;
+    QString request;
+
+    query.exec("select name from pragma_table_info('SECURITY');");
+    query.next();
+    query.next();
+    while (query.next())
+    {
+        QString permission_name = query.value(0).toString();
+        perm.push_back(permission_name);
+    }
+    for (qsizetype i = 0; i < p.size(); i++)
+    {
+        bool flag = true;
+        for (qsizetype j = 0; j < perm.size(); j++)
+        {
+            if (p[i] == perm[j])
+            {
+                flag = false;
+                break;
+            }
+        }
+        if (flag)
+        {
+            perm_to_add.push_back(p[i]);
+        }
+    }
+
+    for (qsizetype i = 0; i < perm_to_add.size(); i++)
+    {
+        request = "ALTER TABLE 'SECURITY' ADD COLUMN '" + perm_to_add[i] + "' TEXT DEFAULT '-';";
+        query.exec(request);
+    }
+
+
+
+
+
+    request =  "INSERT INTO SECURITY (name";
     for (qsizetype i = 0; i < p.size(); i++)
     {
         request += ", " + p[i];
