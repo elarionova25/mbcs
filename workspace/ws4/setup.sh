@@ -1,0 +1,15 @@
+mkdir dir1
+mkdir dir2
+mkdir dir3
+mkdir dir4
+mkdir dir5
+touch dir1/file1
+touch dir1/file2
+touch dir2/file3
+touch dir2/file4
+touch dir3/file5
+touch dir3/file6
+touch dir4/file7
+touch dir4/file8
+touch dir5/file9
+touch dir5/file10
